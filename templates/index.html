@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Vlib Stations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Vlib Stations</h2>
+    <table>
+        <tr>
+            <th>Identifiant station</th>
+            <th>Nom station</th>
+            <th>Station en fontionnement</th>
+            <th>Capacité de la station</th>
+            <th>Nombre bornettes libres</th>
+            <th>Nombre total vélos disponibles</th>
+            <th>Vélos mécaniques disponibles</th>
+            <th>Vélos électrique disponibles</th>
+            <th>Borne de paiement disponible</th>
+            <th>Retour vélib possible</th>
+            <th>Actualisation de la données</th>
+            <th>Nom communes équipées</th>
+
+        </tr>
+        {% for data in all_data %}
+        <tr>
+            <td>{{ data.id }}</td>
+            <td>{{ data.station }}</td>
+            <td>{{ data.status }}</td>
+            <td>{{ data.capacity }}</td>
+            <td>{{ data.nbbornettesLibre }}</td>
+            <td>{{ data.nbtotalvelodispo }}</td>
+            <td>{{ data.velomecadispo }}</td>
+            <td>{{ data.veloelecdispo }}</td>
+            <td>{{ data.bornedispo }}</td>
+            <td>{{ data.retourvelip }}</td>
+            <td>{{ data.actualisation }}</td>
+            <td>{{ data.commune }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,14 @@
+services:
+  redis-master:
+    image: redis
+    container_name: redis-master
+    ports:
+    - "6379:6379"
+    
+  redis-slave:
+    image: redis 
+    container_name: redis-slave
+    ports: 
+      - "6380:6379"
+    commande: ["redis-server", "--slaveoff", "redis-master", "6379"]
+  
